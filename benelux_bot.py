@@ -1,6 +1,6 @@
 # This Python file uses the following encoding: utf-8
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-import logging
+import logging, sys
 
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -56,7 +56,7 @@ def apostil(bot, update):
     update.message.reply_text('Апостили надо делать! ХЗ только как')
 
 
-updater = Updater('470594124:AAFEOcmM7FtcVIeo0zEtZVPeP9u7GuMcrd0')
+updater = Updater(sys.argv[1])
 
 updater.dispatcher.add_handler(CommandHandler('ruling', ruling))
 updater.dispatcher.add_handler(CommandHandler('google_doc', google_doc))
