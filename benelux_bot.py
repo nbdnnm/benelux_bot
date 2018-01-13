@@ -5,9 +5,10 @@ import logging, sys, command_messages
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
-#input bot token as first argument in comand line
+# input bot token as first argument in command line
 updater = Updater(sys.argv[1])
 
+# registration of bot commands
 updater.dispatcher.add_handler(CommandHandler('ruling', command_messages.ruling))
 updater.dispatcher.add_handler(CommandHandler('google_doc', command_messages.google_doc))
 updater.dispatcher.add_handler(CommandHandler('rassvet', command_messages.rassvet))
