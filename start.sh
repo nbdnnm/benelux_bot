@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 ./stop.sh
-python benelux_bot.py $1
+pipenv run python benelux_bot.py $1
