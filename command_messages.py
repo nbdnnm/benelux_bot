@@ -1,6 +1,3 @@
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-
-
 def ruling(bot, update):
     update.message.reply_text(
         """1. Рулинг и статус кенис мигранта в общем случае не связаны (хотя в большинсте случаев КМ получают рулинг
@@ -53,7 +50,7 @@ def transport(bot, update):
     update.message.reply_text('https://rabotaem.nl/transport/obshhestvennyj-transport-v-niderlandah-i-ego-oplata/')
 
 
-def bycicle(bot, update):
+def bicycle(bot, update):
     update.message.reply_text('https://rabotaem.nl/everyday/velosiped-pokupka-strahovka-ispolzovanie/')
 
 

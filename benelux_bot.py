@@ -1,8 +1,9 @@
 # This Python file uses the following encoding: utf-8
-import command_messages
 import sys
 
 from telegram.ext import Updater, CommandHandler
+
+import command_messages
 
 # logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
@@ -20,7 +21,7 @@ updater.dispatcher.add_handler(CommandHandler('bank_account', command_messages.b
 updater.dispatcher.add_handler(CommandHandler('post_taxes', command_messages.post_taxes))
 updater.dispatcher.add_handler(CommandHandler('shops', command_messages.shops))
 updater.dispatcher.add_handler(CommandHandler('transport', command_messages.transport))
-updater.dispatcher.add_handler(CommandHandler('bycicle', command_messages.bycicle))
+updater.dispatcher.add_handler(CommandHandler('bicycle', command_messages.bicycle))
 
 updater.start_polling()
 updater.idle()
