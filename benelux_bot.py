@@ -1,9 +1,10 @@
 # This Python file uses the following encoding: utf-8
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-import logging, sys, command_messages
+import command_messages
+import sys
 
-logging.basicConfig(level=logging.DEBUG,
-                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+from telegram.ext import Updater, CommandHandler
+
+# logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 # input bot token as first argument in command line
 updater = Updater(sys.argv[1])
