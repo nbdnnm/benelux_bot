@@ -22,6 +22,12 @@ updater.dispatcher.add_handler(CommandHandler('post_taxes', command_messages.pos
 updater.dispatcher.add_handler(CommandHandler('shops', command_messages.shops))
 updater.dispatcher.add_handler(CommandHandler('transport', command_messages.transport))
 updater.dispatcher.add_handler(CommandHandler('bicycle', command_messages.bicycle))
+updater.dispatcher.add_handler(CommandHandler('work', command_messages.work))
+updater.dispatcher.add_handler(CommandHandler('pets', command_messages.pets))
+updater.dispatcher.add_handler(CommandHandler('utilities', command_messages.utilities))
+updater.dispatcher.add_handler(CommandHandler('devices', command_messages.devices))
+updater.dispatcher.add_handler(CommandHandler('mobile', command_messages.mobile))
+updater.dispatcher.add_handler(CommandHandler('buy_buckwheat', command_messages.buy_buckwheat))
 
 updater.start_polling()
 updater.idle()
