@@ -1,14 +1,16 @@
 # This Python file uses the following encoding: utf-8
-import sys
+import logging
 
 from telegram.ext import Updater, CommandHandler
 
 import command_messages
+import os
 
-# logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
-# input bot token as first argument in command line
-updater = Updater(sys.argv[1])
+# bot token from environment variables
+bot_key = os.environ['BENELUX_BOT_KEY']
+updater = Updater(bot_key)
 
 # registration of bot commands
 updater.dispatcher.add_handler(CommandHandler('ruling', command_messages.ruling))
