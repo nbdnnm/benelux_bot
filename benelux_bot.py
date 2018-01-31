@@ -1,16 +1,17 @@
 # This Python file uses the following encoding: utf-8
 import logging
+import os
 
 from telegram.ext import Updater, CommandHandler
 
 import command_messages
-import os
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 # bot token from environment variables
 bot_key = os.environ['BENELUX_BOT_KEY']
 updater = Updater(bot_key)
+PORT = int(os.environ.get('PORT', '5000'))
 
 # registration of bot commands
 updater.dispatcher.add_handler(CommandHandler('ruling', command_messages.ruling))
@@ -31,5 +32,6 @@ updater.dispatcher.add_handler(CommandHandler('devices', command_messages.device
 updater.dispatcher.add_handler(CommandHandler('mobile', command_messages.mobile))
 updater.dispatcher.add_handler(CommandHandler('buy_buckwheat', command_messages.buy_buckwheat))
 
-updater.start_polling()
+updater.start_webhook(listen="0.0.0.0", port=PORT, url_path=bot_key)
+updater.bot.setWebhook("https://benelux-bot.herokuapp.com/" + bot_key)
 updater.idle()
