@@ -31,6 +31,7 @@ updater.dispatcher.add_handler(CommandHandler('utilities', command_messages.util
 updater.dispatcher.add_handler(CommandHandler('devices', command_messages.devices))
 updater.dispatcher.add_handler(CommandHandler('mobile', command_messages.mobile))
 updater.dispatcher.add_handler(CommandHandler('buy_buckwheat', command_messages.buy_buckwheat))
+updater.dispatcher.add_handler(CommandHandler('callsaul', command_messages.callsaul))
 
 updater.start_webhook(listen="0.0.0.0", port=PORT, url_path=bot_key)
 updater.bot.setWebhook("https://benelux-bot.herokuapp.com/" + bot_key)
