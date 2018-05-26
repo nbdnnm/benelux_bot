@@ -2,9 +2,10 @@
 import logging
 import os
 
-from telegram.ext import Updater, CommandHandler
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 import command_messages
+import reactions
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
@@ -32,6 +33,8 @@ updater.dispatcher.add_handler(CommandHandler('devices', command_messages.device
 updater.dispatcher.add_handler(CommandHandler('mobile', command_messages.mobile))
 updater.dispatcher.add_handler(CommandHandler('buy_buckwheat', command_messages.buy_buckwheat))
 updater.dispatcher.add_handler(CommandHandler('callsaul', command_messages.callsaul))
+updater.dispatcher.add_handler(
+    MessageHandler(filters=Filters.status_update.new_chat_members, callback=reactions.new_member_greating))
 
 updater.start_webhook(listen="0.0.0.0", port=PORT, url_path=bot_key)
 updater.bot.setWebhook("https://benelux-bot.herokuapp.com/" + bot_key)
