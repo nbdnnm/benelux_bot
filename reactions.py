@@ -48,7 +48,7 @@ http://telegra.ph/Benelux-ru-chats-05-22
 # Resolve message data to a readable name
 def get_name(user):
     try:
-        name = user.username
+        name = "@" + user.username
     except (NameError, AttributeError):
         try:
             name = user.first_name
