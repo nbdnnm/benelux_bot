@@ -46,12 +46,12 @@ http://telegra.ph/Benelux-ru-chats-05-22
 
 
 # Resolve message data to a readable name
-def get_name(new_user):
+def get_name(user):
     try:
-        name = new_user.first_name
+        name = user.username
     except (NameError, AttributeError):
         try:
-            name = new_user.username
+            name = user.first_name
         except (NameError, AttributeError):
             return ""
     return name
