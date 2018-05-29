@@ -101,5 +101,3 @@ def apostil(bot, update):
     update.message.reply_text("""Про апостили ещё не написали. Сложная тема, знаете ли.""")
 
 
-def callsaul(bot, update):
-    update.message.reply_text("""@kolmanovich I need help!!!""")

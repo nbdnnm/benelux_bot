@@ -7,7 +7,8 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import command_messages
 import reactions
 
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    filename='./beneluxbot.log')
 
 # bot token from environment variables
 bot_key = os.environ['BENELUX_BOT_KEY']
@@ -32,7 +33,6 @@ updater.dispatcher.add_handler(CommandHandler('utilities', command_messages.util
 updater.dispatcher.add_handler(CommandHandler('devices', command_messages.devices))
 updater.dispatcher.add_handler(CommandHandler('mobile', command_messages.mobile))
 updater.dispatcher.add_handler(CommandHandler('buy_buckwheat', command_messages.buy_buckwheat))
-updater.dispatcher.add_handler(CommandHandler('callsaul', command_messages.callsaul))
 updater.dispatcher.add_handler(
     MessageHandler(filters=Filters.status_update.new_chat_members, callback=reactions.new_member_greating))
 
