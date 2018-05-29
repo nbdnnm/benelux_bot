@@ -13,10 +13,11 @@ def new_member_greating(bot, update):
     user_id = update.message.from_user.id
     message_id = update.message.message_id
     chat_id = update.message.chat.id
-    name = get_name(update)
+    new_user = update.message._new_chat_member
+    name = get_name(new_user)
 
     # Bot was added to a group chat
-    if update.message._new_chat_member.username == BOTNAME:
+    if new_user.username == BOTNAME:
         return False
     # Another user joined the chat
     else:
@@ -45,12 +46,12 @@ http://telegra.ph/Benelux-ru-chats-05-22
 
 
 # Resolve message data to a readable name
-def get_name(update):
+def get_name(new_user):
     try:
-        name = update.message.from_user.first_name
+        name = new_user.first_name
     except (NameError, AttributeError):
         try:
-            name = update.message.from_user.username
+            name = new_user.username
         except (NameError, AttributeError):
             return ""
     return name
