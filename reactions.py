@@ -49,9 +49,9 @@ http://telegra.ph/Benelux-ru-chats-05-22
 def get_name(user):
     try:
         name = "@" + user.username
-    except (NameError, AttributeError):
+    except:
         try:
             name = user.first_name
-        except (NameError, AttributeError):
+        except:
             return ""
     return name
