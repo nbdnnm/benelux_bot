@@ -8,7 +8,7 @@ import command_messages
 import reactions
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    filename='./beneluxbot.log')
+                    filename='./beneluxbot.log', filemode='w+')
 
 # bot token from environment variables
 bot_key = os.environ['BENELUX_BOT_KEY']
@@ -33,6 +33,7 @@ updater.dispatcher.add_handler(CommandHandler('utilities', command_messages.util
 updater.dispatcher.add_handler(CommandHandler('devices', command_messages.devices))
 updater.dispatcher.add_handler(CommandHandler('mobile', command_messages.mobile))
 updater.dispatcher.add_handler(CommandHandler('buy_buckwheat', command_messages.buy_buckwheat))
+updater.dispatcher.add_handler(CommandHandler('parents_invitation', command_messages.parents_invitation))
 updater.dispatcher.add_handler(
     MessageHandler(filters=Filters.status_update.new_chat_members, callback=reactions.new_member_greating))
 

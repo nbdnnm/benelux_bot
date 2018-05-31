@@ -97,7 +97,9 @@ def bicycle(bot, update):
     update.message.reply_text("""https://rabotaem.nl/everyday/velosiped-pokupka-strahovka-ispolzovanie/""")
 
 
+def parents_invitation(bot, update):
+    update.message.reply_text("""https://rabotaem.nl/docs/sdelat-priglashenie-dlya-roditelej-instruktsiya/""")
+
+
 def apostil(bot, update):
     update.message.reply_text("""Про апостили ещё не написали. Сложная тема, знаете ли.""")
-
-
