@@ -5,12 +5,10 @@ import os
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 import command_messages
-import messages_handlers
 import private_messages
 import reactions
 
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    filename='./beneluxbot.log', filemode='w+')
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 # bot token from environment variables
 bot_key = os.environ['BENELUX_BOT_KEY']
@@ -38,9 +36,10 @@ updater.dispatcher.add_handler(CommandHandler('buy_buckwheat', command_messages.
 updater.dispatcher.add_handler(CommandHandler('parents_invitation', command_messages.parents_invitation))
 updater.dispatcher.add_handler(
     MessageHandler(filters=Filters.status_update.new_chat_members, callback=reactions.new_member_greating))
-updater.dispatcher.add_handler(MessageHandler(Filters.all, messages_handlers.all_messages))
+# updater.dispatcher.add_handler(MessageHandler(Filters.all, messages_handlers.all_messages))
 updater.dispatcher.add_handler(MessageHandler(Filters.private, private_messages.private_messages))
 
-updater.start_webhook(listen="0.0.0.0", port=PORT, url_path=bot_key)
-updater.bot.setWebhook("https://benelux-bot.herokuapp.com/" + bot_key)
+# updater.start_webhook(listen="0.0.0.0", port=PORT, url_path=bot_key)
+# updater.bot.setWebhook("https://benelux-bot.herokuapp.com/" + bot_key)
+updater.start_polling()
 updater.idle()
