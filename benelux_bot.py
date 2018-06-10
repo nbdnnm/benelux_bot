@@ -35,6 +35,7 @@ updater.dispatcher.add_handler(CommandHandler('devices', command_messages.device
 updater.dispatcher.add_handler(CommandHandler('mobile', command_messages.mobile))
 updater.dispatcher.add_handler(CommandHandler('buy_buckwheat', command_messages.buy_buckwheat))
 updater.dispatcher.add_handler(CommandHandler('parents_invitation', command_messages.parents_invitation))
+updater.dispatcher.add_handler(CommandHandler('list_my_listeners', command_messages.list_my_listeners))
 updater.dispatcher.add_handler(MessageHandler(Filters.status_update.new_chat_members, reactions.new_member_greating))
 updater.dispatcher.add_handler(MessageHandler(Filters.private, private_messages.private_messages))
 updater.dispatcher.add_handler(MessageHandler(Filters.group, messages_handlers.all_messages))

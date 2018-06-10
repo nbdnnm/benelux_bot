@@ -1,3 +1,6 @@
+from base import Session
+from groups_messages_listener import GroupsMessagesListener
+
 def ruling(bot, update):
     update.message.reply_text(
         """1. Рулинг и статус кенис мигранта в общем случае не связаны (хотя в большинсте случаев КМ получают рулинг)
@@ -99,6 +102,18 @@ def bicycle(bot, update):
 
 def parents_invitation(bot, update):
     update.message.reply_text("""https://rabotaem.nl/docs/sdelat-priglashenie-dlya-roditelej-instruktsiya/""")
+
+
+def list_my_listeners(bot, update):
+    session = Session()
+    user = update.message.from_user.username
+    user_data = session.query(GroupsMessagesListener).filter_by(username=user).first()
+    text = str()
+    for chat in user_data.listeners.keys():
+        text += "**CHAT " + chat + ":**\n"
+        for listener in user_data.listeners[chat]:
+            text += listener + "\n"
+    update.message.reply_text(text)
 
 
 def apostil(bot, update):
