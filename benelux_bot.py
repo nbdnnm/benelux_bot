@@ -41,5 +41,4 @@ updater.dispatcher.add_handler(MessageHandler(Filters.group, messages_handlers.a
 
 updater.start_webhook(listen="0.0.0.0", port=PORT, url_path=bot_key)
 updater.bot.setWebhook("https://benelux-bot.herokuapp.com/" + bot_key)
-updater.start_polling()
 updater.idle()
