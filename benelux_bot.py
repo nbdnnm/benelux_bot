@@ -1,4 +1,5 @@
 # This Python file uses the following encoding: utf-8
+import logging
 import os
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
@@ -8,8 +9,8 @@ import messages_handlers
 import private_messages
 import reactions
 
-# logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-# logging.getLogger('sqlalchemy.engine').setLevel(logging.DEBUG)
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logging.getLogger('sqlalchemy.engine').setLevel(logging.DEBUG)
 
 # bot token from environment variables
 bot_key = os.environ['BENELUX_BOT_KEY']
