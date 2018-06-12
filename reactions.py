@@ -8,12 +8,10 @@ PRIOR_WELCOME_MESSAGE_ID = {
 
 
 def new_member_greating(bot, update):
-    """ Welcomes new chat member """
 
-    user_id = update.message.from_user.id
     message_id = update.message.message_id
     chat_id = update.message.chat.id
-    new_user = update.message._new_chat_member
+    new_user = update.message.new_chat_members[0]
     name = get_name(new_user)
 
     # Bot was added to a group chat
