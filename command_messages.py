@@ -110,7 +110,7 @@ def list_my_listeners(bot, update):
     user_data = session.query(GroupsMessagesListener).filter_by(username=user).first()
     text = str()
     for chat in user_data.listeners.keys():
-        text += "**CHAT " + chat + ":**\n"
+        text += "\nCHAT " + chat + ":\n"
         for listener in user_data.listeners[chat]:
             text += listener + "\n"
     update.message.reply_text(text)
