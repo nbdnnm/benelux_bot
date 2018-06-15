@@ -13,26 +13,27 @@ def private_messages(bot, update):
 
 def process_listener_request(listener, session, update):
     user = update.message.from_user.username
-    user_data = session.query(GroupsMessagesListener).filter_by(username=user).first()
-    if user_data:
-        dict_of_listeners = dict(user_data.listeners)
+    user_listeners = session.query(GroupsMessagesListener).filter_by(username=user).first()
+    if user_listeners:
+        dict_of_listeners = dict(user_listeners.listeners)
 
-        if listener.group(1) in dict_of_listeners.keys():
-            dict_of_listeners[listener.group(1)].append(listener.group(2))
-            dict_of_listeners[listener.group(1)] = list(set(dict_of_listeners[listener.group(1)]))
-
-            if listener.group(2).startswith("-"):
-                try:
-                    dict_of_listeners[listener.group(1)].remove(listener.group(2)[1:])
-                except ValueError:
-                    pass
+        if listener.group(2).startswith("-"):
+            try:
+                dict_of_listeners[listener.group(1)].remove(listener.group(2)[1:])
+            except ValueError:
+                pass
         else:
-            create_new_chat_listener(dict_of_listeners, listener)
+            if listener.group(1) in dict_of_listeners.keys():
+                dict_of_listeners[listener.group(1)].append(listener.group(2))
+                dict_of_listeners[listener.group(1)] = list(set(dict_of_listeners[listener.group(1)]))
+
+            else:
+                create_new_chat_listener(dict_of_listeners, listener)
 
         new_user_data = GroupsMessagesListener(username=user, chat_id=update.message.chat.id,
                                                listeners=dict_of_listeners,
-                                               update_nr=user_data.update_nr + 1)
-        session.delete(user_data)
+                                               update_nr=user_listeners.update_nr + 1)
+        session.delete(user_listeners)
     else:
         dict_of_listeners = dict()
         create_new_chat_listener(dict_of_listeners, listener)
