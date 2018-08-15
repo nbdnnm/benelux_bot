@@ -1,21 +1,24 @@
+import telegram
+
 from base import Session
 from groups_messages_listener import GroupsMessagesListener
+
 
 def ruling(bot, update):
     update.message.reply_text(
         """1. Рулинг и статус кенис мигранта в общем случае не связаны (хотя в большинсте случаев КМ получают рулинг)
 2. Рулинг 30% - это возможность получить необлагаемыми налого ДО 30% зарплаты (может быть меньше)
-3. Немного деталей на английском здесь: https://www.iamsterdam.com/en/living/take-care-of-official-matters/highly-skilled-migrants/thirty-percent-ruling/30-percent-ruling-indepth
-4. Оригинал всего про рулинг здесь: https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/internationaal/werken_wonen/tijdelijk_in_een_ander_land_werken/u_komt_in_nederland_werken/30_procent_regeling/
+3. Немного деталей на английском [www.iamsterdam.com](https://www.iamsterdam.com/en/living/take-care-of-official-matters/highly-skilled-migrants/thirty-percent-ruling/30-percent-ruling-indepth)
+4. Оригинал всего про рулинг [www.belastingdienst.nl](https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/internationaal/werken_wonen/tijdelijk_in_een_ander_land_werken/u_komt_in_nederland_werken/30_procent_regeling/)
 5. Рулинг позволяет обменять иностранные права на нидерландские без лишних телодвижений и почти без затрат (суммарно обмен получается до 100 евро)
-6. Прикинуть зп с учетом рулинга можно здесь: http://www.thetax.nl  
-Еще детали про рулинг здесь: https://rabotaem.nl/info/likbez/chto-takoe-30-ruling/""")
+6. Прикинуть зп с учетом рулинга можно там http://www.thetax.nl  
+Еще детали про рулинг: https://rabotaem.nl/info/likbez/chto-takoe-30-ruling/""", parse_mode=telegram.ParseMode.MARKDOWN,
+        disable_web_page_preview=True)
 
 
 def driver_license(bot, update):
     update.message.reply_text("""1. Если у вас есть рулинг, ваши прежние права можно обменять. Подробности здесь: http://rabotaem.nl/docs/inostrannye_prava_v_niderlandah/
-2. Если рулинга нет, то права нужно получать с нуля в обычном порядке
-Детальнее здесь: https://rabotaem.nl/docs/inostrannye_prava_v_niderlandah/""")
+2. Если рулинга нет, то права нужно получать с нуля в обычном порядке""")
 
 
 def bank_cards(bot, update):
@@ -28,15 +31,16 @@ https://en.wikipedia.org/wiki/Maestro_(debit_card) и https://nl.wikipedia.org/w
 
 def google_doc(bot, update):
     update.message.reply_text("""Гугл док наполняемый участниками чата
-    https://goo.gl/5IdCbk""")
+https://goo.gl/5IdCbk""")
 
 
 def work(bot, update):
-    update.message.reply_text("""Статьи о работе, учебе, кеннисмигрантстве здесь:
-https://rabotaem.nl/moving/v-gollandiyu-uchitsya-ili-rabotat/
-https://rabotaem.nl/finances/predprinimatelstvo-dlya-kmov-inostrannyh-studentov-i-uchenyh/
-https://rabotaem.nl/work/uvolnenie-poisk-raboty-i-smena-rabotodatelya/
-https://rabotaem.nl/news/rabochij-rynok-niderlandov-analiz-2017-goda/""")
+    update.message.reply_text("""Статьи о работе, учебе, кеннисмигрантстве:  
+[В Голандию учится или работать](https://rabotaem.nl/moving/v-gollandiyu-uchitsya-ili-rabotat/)  
+[Предпринимательство для КМов, иностранных студентов и ученых](https://rabotaem.nl/finances/predprinimatelstvo-dlya-kmov-inostrannyh-studentov-i-uchenyh/)  
+[Увольнение, поиск работы и смена работодателя](https://rabotaem.nl/work/uvolnenie-poisk-raboty-i-smena-rabotodatelya/)  
+[Рабочий IT рынок Нидерландов — анализ 2017 года](https://rabotaem.nl/news/rabochij-rynok-niderlandov-analiz-2017-goda/)""",
+                              parse_mode=telegram.ParseMode.MARKDOWN, disable_web_page_preview=True)
 
 
 def pets(bot, update):
@@ -51,11 +55,12 @@ def bank_account(bot, update):
 
 
 def post_taxes(bot, update):
-    update.message.reply_text("""За посылки из-за пределов ЕС нужно оплачивать пошлины.
-Оплата производится сразу при доставке посылки.
-Примерную стоимость можно прикинуть, почитав по ссылкам:
-https://www.postnl.nl/ontvangen/pakket-ontvangen/pakket-uit-het-buitenland/bijkomende-kosten-bij-het-importeren-van-goederen-uit-het-buitenland/
-https://www.belastingdienst.nl/wps/wcm/connect/nl/internetaankopen/content/hoeveel-betaal-ik-de-douane-als-ik-iets-koop-bij-buitenlandse-webshop""")
+    update.message.reply_text("""За посылки из-за пределов ЕС нужно оплачивать пошлины.  
+Оплата производится сразу при доставке посылки.  
+Примерную стоимость можно прикинуть, почитав по ссылкам:  
+[postnl.nl...](https://www.postnl.nl/ontvangen/pakket-ontvangen/pakket-uit-het-buitenland/bijkomende-kosten-bij-het-importeren-van-goederen-uit-het-buitenland/)  
+[belastingdienst.nl...](https://www.belastingdienst.nl/wps/wcm/connect/nl/internetaankopen/content/hoeveel-betaal-ik-de-douane-als-ik-iets-koop-bij-buitenlandse-webshop)""",
+                              parse_mode=telegram.ParseMode.MARKDOWN, disable_web_page_preview=True)
 
 
 def shops(bot, update):
@@ -64,28 +69,25 @@ def shops(bot, update):
 
 def buy_buckwheat(bot, update):
     update.message.reply_text("""Привычные товары можно найти в русских или польских магазинах (последние надо гуглить по словам polski sklep)
-    Примеры:
+Примеры:
 Амстердам: http://minimixamsterdam.com/nl/
 http://www.priwetrossia.nl/index.php
 Утрехт: http://www.slavjanskidvor.nl
 Альмере: http://www.slavyankamarket.com/webshop/nl
 Хаарлем: https://www.facebook.com/SmaczekHaarlem/
-Кроме того, привычные продукты можно поискать в турецких магазинах""")
+Кроме того, привычные продукты можно поискать в турецких магазинах""", disable_web_page_preview=True)
 
 
 def mobile(bot, update):
-    update.message.reply_text("""Подробная статья на тему выбора мобильного оператора и пакета здесь:
-https://rabotaem.nl/everyday/mobilnaya-svyaz-v-niderlandah/""")
+    update.message.reply_text("""https://rabotaem.nl/everyday/mobilnaya-svyaz-v-niderlandah/""")
 
 
 def devices(bot, update):
-    update.message.reply_text("""Варианты где искать и заказывать здесь: 
-https://rabotaem.nl/everyday/poisk-i-pokupka-tehniki-i-prochej-elektroniki/""")
+    update.message.reply_text("""https://rabotaem.nl/everyday/poisk-i-pokupka-tehniki-i-prochej-elektroniki/""")
 
 
 def utilities(bot, update):
-    update.message.reply_text("""Подробности здесь:
-https://rabotaem.nl/everyday/vybor-postavshhikov-kommunalnyh-uslug/""")
+    update.message.reply_text("""https://rabotaem.nl/everyday/vybor-postavshhikov-kommunalnyh-uslug/""")
 
 
 def rassvet(bot, update):
