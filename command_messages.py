@@ -36,7 +36,7 @@ https://goo.gl/5IdCbk""")
 
 def work(bot, update):
     update.message.reply_text("""Статьи о работе, учебе, кеннисмигрантстве:  
-[В Голандию учится или работать](https://rabotaem.nl/moving/v-gollandiyu-uchitsya-ili-rabotat/)  
+[В Голландию: учиться или работать](https://rabotaem.nl/moving/v-gollandiyu-uchitsya-ili-rabotat/)  
 [Предпринимательство для КМов, иностранных студентов и ученых](https://rabotaem.nl/finances/predprinimatelstvo-dlya-kmov-inostrannyh-studentov-i-uchenyh/)  
 [Увольнение, поиск работы и смена работодателя](https://rabotaem.nl/work/uvolnenie-poisk-raboty-i-smena-rabotodatelya/)  
 [Рабочий IT рынок Нидерландов — анализ 2017 года](https://rabotaem.nl/news/rabochij-rynok-niderlandov-analiz-2017-goda/)""",
