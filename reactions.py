@@ -10,7 +10,6 @@ PRIOR_WELCOME_MESSAGE_ID = {
 
 
 def new_member_greating(bot, update):
-
     message_id = update.message.message_id
     chat_id = update.message.chat.id
     new_user = update.message.new_chat_members[0]
@@ -39,7 +38,8 @@ def new_member_greating(bot, update):
 Со мной вы можете пообщаться в [личном чате](https://t.me/beneluxbot)
 """.format(name)
 
-        message = update.message.reply_text(msg, parse_mode=telegram.ParseMode.MARKDOWN, disable_web_page_preview=True)
+        message = bot.send_message(chat_id=chat_id, reply_to_message_id=message_id, text=msg,
+                                   parse_mode=telegram.ParseMode.MARKDOWN, disable_web_page_preview=True)
 
         PRIOR_WELCOME_MESSAGE_ID[chat_id] = int(message.message_id)
 
