@@ -120,3 +120,9 @@ def list_my_listeners(bot, update):
 
 def apostil(bot, update):
     update.message.reply_text("""Про апостили ещё не написали. Сложная тема, знаете ли.""")
+
+
+def start(bot, update):
+    update.message.reply_text("""Здравствуйте!
+Я бот чатов Бенелюкс.
+Вы можете запросить справочную информацию введя слэш (/) и выбрав интересующий пункт.""")

@@ -1,3 +1,5 @@
+import telegram
+
 BENELUX_MAIN = 1186369530
 BOTNAME = "beneluxbot"
 
@@ -28,17 +30,16 @@ def new_member_greating(bot, update):
         msg = """Здравствуйте {}!
 Рады приветствовать Вас в нашем чате.
 Будем благодарны если вы представитесь.
-У нас уже собрано очень много информации по переезду и жизни в странах Бенелюкс.
-Пожалуйста, воспользуйтесь поиском по чату, а так же ознакомьтесь с нашими ресурсами:
-https://rabotaem.nl
-https://goo.gl/5IdCbk
-http://telegra.ph/Benelux-ru-chats-05-22
 
-Со мной вы можете пообщаться в личном чате.
-После перехода в него введите слэш (/) в текстовое поле и выберите команду из выпавшего списка.
+У нас есть несколько чатов разной тематики по вопросу релокации и жизни в странах Бенелюкс:
+@inBenelux – основной чат обо всём
+@inBenelux_questions - чат только для вопросов и ответов
+Ссылки на остальные полезные ресурсы http://telegra.ph/Benelux-ru-chats-05-22
+
+Со мной вы можете пообщаться в [личном чате](https://t.me/beneluxbot)
 """.format(name)
 
-        message = bot.sendMessage(chat_id=chat_id, reply_to_message_id=message_id, text=msg)
+        message = update.message.reply_text(msg, parse_mode=telegram.ParseMode.MARKDOWN, disable_web_page_preview=True)
 
         PRIOR_WELCOME_MESSAGE_ID[chat_id] = int(message.message_id)
 
