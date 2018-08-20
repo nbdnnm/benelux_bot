@@ -1,5 +1,3 @@
-import telegram
-
 BENELUX_MAIN = 1186369530
 BOTNAME = "beneluxbot"
 
@@ -35,11 +33,10 @@ def new_member_greeting(bot, update):
 @inBenelux_questions - чат только для вопросов и ответов
 Ссылки на остальные полезные ресурсы http://telegra.ph/Benelux-ru-chats-05-22
 
-Со мной вы можете пообщаться в [личном чате](https://t.me/beneluxbot)
+Со мной вы можете пообщаться в личном чате @beneluxbot
 """.format(name)
 
-        message = bot.send_message(chat_id=chat_id, reply_to_message_id=message_id, text=msg,
-                                   parse_mode=telegram.ParseMode.MARKDOWN)
+        message = bot.send_message(chat_id=chat_id, reply_to_message_id=message_id, text=msg)
 
         PRIOR_WELCOME_MESSAGE_ID[chat_id] = int(message.message_id)
 
