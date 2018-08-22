@@ -129,11 +129,14 @@ def start(bot, update):
 
 
 def chats(bot, update):
-    update.message.reply_text("""@velobenelux – всё о велосипедах
+    update.message.reply_text("""@inBenelux – основной чат
+@inBenelux_questions - чат только для вопросов и ответов
+@velobenelux – всё о велосипедах
 @learning_nederlands – чат про изучение голландского
 @ITinBenelux – чат об ИТ
 @benelux_foodie – о еде в Бенилюксе
 @benelux_events – канал про интересные мероприятия и праздники
+@beneluxevents - чат о мероприятиях
 @ijburg_ru – чатик русскоязычных жителей Amsterdam-IJburg (Ижбург!) 
 @inAlmere – русскоязычные жители Almere - лучшего города приАмстердамья
 @BNL вещества – про различные субстанции для изменения сознания, вход по инвайтам, спрашивайте в основном чате
