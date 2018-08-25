@@ -4,6 +4,8 @@ import os
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 import command_messages
+import messages_handlers
+import private_messages
 import reactions
 
 # logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -37,8 +39,8 @@ updater.dispatcher.add_handler(CommandHandler('list_my_listeners', command_messa
 updater.dispatcher.add_handler(CommandHandler('start', command_messages.start))
 updater.dispatcher.add_handler(CommandHandler('chats', command_messages.chats))
 updater.dispatcher.add_handler(MessageHandler(Filters.status_update.new_chat_members, reactions.new_member_greeting))
-# updater.dispatcher.add_handler(MessageHandler(Filters.private, private_messages.private_messages))
-# updater.dispatcher.add_handler(MessageHandler(Filters.group, messages_handlers.all_messages))
+updater.dispatcher.add_handler(MessageHandler(Filters.private, private_messages.private_messages))
+updater.dispatcher.add_handler(MessageHandler(Filters.group, messages_handlers.all_messages))
 
 updater.start_webhook(listen="0.0.0.0", port=PORT, url_path=bot_key)
 updater.bot.setWebhook("https://benelux-bot.herokuapp.com/" + bot_key)
