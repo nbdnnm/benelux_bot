@@ -130,7 +130,6 @@ def start(bot, update):
 
 def chats(bot, update):
     update.message.reply_text("""@inBenelux – основной чат
-@inBenelux_questions - чат только для вопросов и ответов
 @velobenelux – всё о велосипедах
 @learning_nederlands – чат про изучение голландского
 @ITBenelux – чат об ИТ
