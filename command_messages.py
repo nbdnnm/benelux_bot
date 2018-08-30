@@ -133,7 +133,7 @@ def chats(bot, update):
 @inBenelux_questions - чат только для вопросов и ответов
 @velobenelux – всё о велосипедах
 @learning_nederlands – чат про изучение голландского
-@ITinBenelux – чат об ИТ
+@ITBenelux – чат об ИТ
 @benelux_foodie – о еде в Бенилюксе
 @benelux_events – канал про интересные мероприятия и праздники
 @beneluxevents - чат о мероприятиях
