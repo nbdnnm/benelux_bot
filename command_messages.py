@@ -17,7 +17,7 @@ def ruling(bot, update):
 
 
 def driver_license(bot, update):
-    update.message.reply_text("""1. Если у вас есть рулинг, ваши прежние права можно обменять. Подробности здесь: http://rabotaem.nl/docs/inostrannye_prava_v_niderlandah/
+    update.message.reply_text("""1. Если у вас есть рулинг, ваши прежние права можно обменять. Подробности здесь: https://rabotaem.nl/docs/inostrannye_prava_v_niderlandah/
 2. Если рулинга нет, то права нужно получать с нуля в обычном порядке""")
 
 
@@ -64,7 +64,7 @@ def post_taxes(bot, update):
 
 
 def shops(bot, update):
-    update.message.reply_text("""http://rabotaem.nl/everyday/magaziny-pervoj-neobhodimosti/""")
+    update.message.reply_text("""https://rabotaem.nl/everyday/magaziny-pervoj-neobhodimosti/""")
 
 
 def buy_buckwheat(bot, update):
