@@ -28,7 +28,7 @@ def new_member_greeting(bot, update):
 Рады приветствовать Вас в нашем чате.
 Будем благодарны если вы представитесь.
 
-Ссылки на остальные полезные ресурсы http://telegra.ph/Benelux-ru-chats-05-22
+Ссылки на остальные полезные ресурсы https://telegra.ph/RU-Benelux-07-15
 
 Со мной вы можете пообщаться в личном чате @beneluxbot
 """.format(name)
