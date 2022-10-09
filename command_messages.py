@@ -1,7 +1,7 @@
 import telegram
 
-from base import Session
-from groups_messages_listener import GroupsMessagesListener
+# from base import Session
+# from groups_messages_listener import GroupsMessagesListener
 
 
 def delete_message(bot, update):
@@ -126,18 +126,6 @@ def bicycle(bot, update):
 def parents_invitation(bot, update):
     update.message.reply_text("""https://rabotaem.nl/docs/sdelat-priglashenie-dlya-roditelej-instruktsiya/""")
     delete_message(bot, update)
-
-
-def list_my_listeners(bot, update):
-    session = Session()
-    user = update.message.from_user.username
-    user_data = session.query(GroupsMessagesListener).filter_by(username=user).first()
-    text = str()
-    for chat in user_data.listeners.keys():
-        text += "\nCHAT " + chat + ":\n"
-        for listener in user_data.listeners[chat]:
-            text += listener + "\n"
-    update.message.reply_text(text)
 
 
 def apostil(bot, update):
